@@ -18,8 +18,8 @@ Important observations:
 
 - ICMP Type: 8
 - ICMP Code: 0
-- Source IP: observed in Wireshark
-- Destination IP: observed in Wireshark
+- Source IP: my system's IP address
+- Destination IP: destination system's IP address
 - Sequence Number: used to identify the individual request
 
 ## 3. Echo Reply
@@ -31,7 +31,7 @@ Important observations:
 - ICMP Type: 0
 - ICMP Code: 0
 - Source and destination IP addresses are reversed compared with the request.
-- The sequence number corresponds to the request.
+- The sequence number matches the corresponding Echo Request, allowing the request and reply to be associated.
 
 ## 4. Packet Encapsulation
 
@@ -85,4 +85,14 @@ actual network packets that can be captured and analyzed.
 
 I also learned to examine network communication layer by layer instead
 of looking at the traffic only as a connectivity test.
+
+## Evidence
+
+The screenshots in this folder show:
+- ICMP Echo Request and Echo Reply traffic
+- Packet-level protocol encapsulation
+- IPv4 and ICMP header fields
+- Request/reply sequence matching
+
+Sensitive IP and MAC address information has been redacted before publication.
 
