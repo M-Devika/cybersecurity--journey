@@ -11,7 +11,10 @@ I generated DNS traffic using:
 ```bash
 nslookup google.com 8.8.8.8
 
-I captured the traffic using Wireshark and applied the display filter:
+
+
+
+##I captured the traffic using Wireshark and applied the display filter:
 
 dns
 What I Analyzed
