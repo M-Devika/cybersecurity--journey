@@ -31,7 +31,7 @@ What I Analyzed
 
     DNS packet encapsulation
 
-Key Observations
+##Key Observations
 
     DNS communication was observed over UDP.
 
@@ -63,7 +63,7 @@ DNS
 
 Evidence
 
-The screenshots show:
+##The screenshots show:
 
     DNS Query packet
 
