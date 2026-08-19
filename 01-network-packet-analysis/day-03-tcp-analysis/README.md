@@ -60,7 +60,7 @@ The three-way handshake establishes a TCP connection before data communication b
 ## Key Observations
 
 ```text
-Client Port: 60234
+Client Port: 60736
 Server Port: 443
 ```
 
@@ -72,12 +72,12 @@ SYN:
 SEQ = 0
 
 SYN-ACK:
-443 → 60234
+443 → 60736
 SEQ = 0
 ACK = 1
 
 ACK:
-60234 → 443
+60736 → 443
 SEQ = 1
 ACK = 1
 ```
