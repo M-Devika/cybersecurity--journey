@@ -265,9 +265,7 @@ IPv4
 ↓
 TCP
 ↓
-TLS
-↓
-HTTP
+TLS/HTTP
 ```
 ### Ethernet II
 
