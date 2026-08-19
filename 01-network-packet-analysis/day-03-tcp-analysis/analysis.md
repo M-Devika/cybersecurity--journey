@@ -258,7 +258,6 @@ The exact values depend on the TCP connection observed in the capture.
 ## 10. Packet Encapsulation
 
 The TCP packet can be viewed through the following protocol layers:
-
 ```text
 Ethernet II
 ↓
@@ -266,9 +265,10 @@ IPv4
 ↓
 TCP
 ↓
-HTTPS
+TLS
+↓
+HTTP
 ```
-
 ### Ethernet II
 
 Provides Layer 2 information such as source and destination MAC addresses.
