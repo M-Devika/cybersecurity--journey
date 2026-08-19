@@ -89,14 +89,10 @@ IPv4
 TCP
 ↓
 HTTPS
-# Ethernet II:
-             Provides Layer 2 addressing information.
-# IPv4:
-       Provides source and destination IP addresses.
-# TCP: 
-      Provides reliable transport using ports, sequence numbers, acknowledgment numbers, and control flags.
-# HTTPS: 
-        Provides encrypted application-layer communication over the TCP connection.
+- **Ethernet II:** Provides Layer 2 addressing information.
+- **IPv4:** Provides source and destination IP addresses.
+- **TCP:**  Provides reliable transport using ports, sequence numbers, acknowledgment numbers, and control flags.
+- **HTTPS:**Provides encrypted application-layer communication over the TCP connection.
 
 ## Investigation Lesson
 
