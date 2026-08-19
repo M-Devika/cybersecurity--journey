@@ -75,7 +75,7 @@ Important observations:
 
 ```text
 Source Port: 443
-Destination Port: 60234
+Destination Port: 60736
 SYN: Set
 ACK: Set
 Relative Sequence Number: 0
@@ -106,7 +106,7 @@ The third packet was an ACK sent from my system to the server.
 Important observations:
 
 ```text
-Source Port: 60234
+Source Port: 60736
 Destination Port: 443
 ACK: Set
 Relative Sequence Number: 1
@@ -210,7 +210,7 @@ ACK
 The TCP communication used:
 
 ```text
-Client Port: 60234
+Client Port: 60736
 Server Port: 443
 ```
 
@@ -222,13 +222,13 @@ The direction changes between the request and response:
 
 ```text
 SYN:
-60234 → 443
+60736 → 443
 
 SYN-ACK:
-443 → 60234
+443 → 60736
 
 ACK:
-60234 → 443
+60736 → 443
 ```
 
 ---
