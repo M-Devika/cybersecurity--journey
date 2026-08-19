@@ -41,7 +41,7 @@ Window size
 TCP options
 TCP packet encapsulation
 TCP Three-Way Handshake
-Client                         Server
+- **Client                         Server
   |                              |
   | -------- SYN --------------> |
   |                              |
@@ -49,7 +49,7 @@ Client                         Server
   |                              |
   | -------- ACK --------------> |
   |                              |
-  |      Connection Established  |
+  |      Connection Established  |**
 
 The three-way handshake establishes a TCP connection before data communication begins.
 
@@ -92,7 +92,7 @@ HTTPS
 - **Ethernet II:** Provides Layer 2 addressing information.
 - **IPv4:** Provides source and destination IP addresses.
 - **TCP:**  Provides reliable transport using ports, sequence numbers, acknowledgment numbers, and control flags.
-- **HTTPS:**Provides encrypted application-layer communication over the TCP connection.
+- **HTTPS:** Provides encrypted application-layer communication over the TCP connection.
 
 ## Investigation Lesson
 
