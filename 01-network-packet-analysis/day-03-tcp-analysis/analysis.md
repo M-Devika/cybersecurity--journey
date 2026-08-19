@@ -52,7 +52,7 @@ The first packet was a TCP SYN packet sent from my system to the server.
 Important observations:
 
 ```text
-Source Port: 60234
+Source Port: 60736
 Destination Port: 443
 SYN: Set
 ACK: Not Set
