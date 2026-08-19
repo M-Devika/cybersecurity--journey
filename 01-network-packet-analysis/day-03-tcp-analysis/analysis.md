@@ -59,7 +59,7 @@ ACK: Not Set
 Relative Sequence Number: 0
 ```
 
-Port `60234` is an ephemeral client port.
+Port `60736` is an ephemeral client port.
 
 Port `443` is the standard port associated with HTTPS communication.
 
