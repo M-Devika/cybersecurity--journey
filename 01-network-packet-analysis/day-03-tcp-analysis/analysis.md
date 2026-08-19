@@ -22,21 +22,26 @@ This allowed me to focus on TCP packets and identify the TCP connection establis
 
 ## 2. TCP Three-Way Handshake
 
-The TCP connection was established through the standard three-way handshake:
-
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant S as Server
-
-    C->>S: SYN
-    S->>C: SYN + ACK
-    C->>S: ACK
-
-    Note over C,S: TCP Connection Established
-```
+The TCP connection was established through the standard three-way handshake.
 
 The three packets were analyzed individually to understand how TCP establishes a connection.
+
+```text
+Client                         Server
+
+SEQ = 0
+SYN
+   --------------------------->
+
+                               SEQ = 0
+                               ACK = 1
+                               SYN + ACK
+   <---------------------------
+
+SEQ = 1
+ACK = 1
+   --------------------------->
+```
 
 ---
 
@@ -129,28 +134,49 @@ After this packet, the TCP three-way handshake is complete.
 
 ## 6. Sequence and Acknowledgment Relationship
 
-The handshake can be represented as:
+Each direction of TCP communication maintains its own sequence-number space.
+
+The handshake can be understood as:
 
 ```text
 Client                         Server
 
+Client sends:
 SEQ = 0
 SYN
    --------------------------->
 
-                               SEQ = 0
-                               ACK = 1
-                               SYN + ACK
+Server responds:
+SEQ = 0
+ACK = 1
+SYN + ACK
    <---------------------------
 
+Client responds:
 SEQ = 1
 ACK = 1
    --------------------------->
 ```
 
-Each direction maintains its own sequence-number space.
+The acknowledgment number indicates the next sequence number expected from the other endpoint.
 
-The acknowledgment number confirms the next sequence number expected from the other endpoint.
+In this handshake, each SYN consumes one sequence number.
+
+Therefore:
+
+```text
+Client SYN:
+SEQ = 0
+
+Server ACK:
+ACK = 1
+
+Server SYN:
+SEQ = 0
+
+Client ACK:
+ACK = 1
+```
 
 ---
 
