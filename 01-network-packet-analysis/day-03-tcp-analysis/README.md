@@ -40,16 +40,21 @@ Acknowledgment numbers
 Window size
 TCP options
 TCP packet encapsulation
-TCP Three-Way Handshake
-- **Client                         Server
-  |                              |
-  | -------- SYN --------------> |
-  |                              |
-  | <------ SYN + ACK ---------- |
-  |                              |
-  | -------- ACK --------------> |
-  |                              |
-  |      Connection Established  |**
+## TCP Three-Way Handshake
+
+The TCP connection is established through a three-way handshake:
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+
+    C->>S: SYN
+    S->>C: SYN + ACK
+    C->>S: ACK
+
+    Note over C,S: TCP Connection Established
+```
 
 The three-way handshake establishes a TCP connection before data communication begins.
 
