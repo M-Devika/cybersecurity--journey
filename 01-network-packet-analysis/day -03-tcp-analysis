@@ -1,1 +1,95 @@
+# Day 03 — TCP Packet Analysis with Wireshark
+
+
+## Objective
+
+
+To understand TCP communication at the packet level and analyze the TCP three-way handshake using Wireshark.
+
+
+## Environment
+
+
+```text
+Operating System: Ubuntu Linux
+Tool: Wireshark
+Network Interface: wlp2s0
+Practical Task
+
+I generated controlled TCP traffic using:
+
+curl https://example.com
+
+I then captured the traffic using Wireshark and filtered the packets using:
+
+tcp
+Concepts Learned
+TCP
+TCP Three-Way Handshake
+SYN
+SYN-ACK
+ACK
+Source and destination ports
+Sequence numbers
+Acknowledgment numbers
+TCP flags
+Window size
+TCP options
+Packet encapsulation
+TCP Three-Way Handshake
+Client
+   ↓
+SYN
+   ↓
+Server
+
+
+Client
+   ↑
+SYN + ACK
+   ↑
+Server
+
+
+Client
+   ↓
+ACK
+   ↓
+Server
+
+The three-way handshake establishes a TCP connection between the client and server before data communication begins.
+
+Key Observations
+The client used an ephemeral source port.
+The server used TCP port 443 for HTTPS communication.
+The SYN packet contained the SYN flag.
+The SYN-ACK packet contained both SYN and ACK flags.
+The final packet contained the ACK flag.
+The SYN packet had a relative sequence number of 0.
+The SYN-ACK acknowledged the client's SYN with acknowledgment number 1.
+The final ACK acknowledged the server's SYN with acknowledgment number 1.
+Each direction of TCP communication maintains its own sequence-number space.
+Packet Structure
+Ethernet II
+↓
+IPv4
+↓
+TCP
+↓
+HTTPS
+Investigation Lesson
+
+A TCP connection is established through a three-way handshake before data is exchanged.
+
+Analyzing the SYN, SYN-ACK, and ACK packets makes it possible to understand how TCP synchronizes sequence numbers and confirms communication between two endpoints.
+
+I also observed that packet captures can contain unrelated background traffic. Therefore, traffic should be identified carefully based on IP addresses, ports, protocols, and connection context rather than assuming every captured packet belongs to the activity being investigated.
+
+Conclusion
+
+This exercise helped me move from understanding TCP as a networking concept to observing the TCP connection-establishment process at the packet level.
+
+I learned how to identify the TCP three-way handshake and understand the relationship between TCP ports, flags, sequence numbers, and acknowledgment numbers.
+
+
 
