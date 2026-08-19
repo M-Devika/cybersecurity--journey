@@ -22,7 +22,7 @@ To understand TCP communication at the packet level and analyze the TCP three-wa
 I generated controlled TCP traffic using:
 
 
-```bash
+bash
 curl https://example.com
 
 I captured the traffic using Wireshark and applied the display filter:
