@@ -1,9 +1,4 @@
-the technical corrections we discussed.
 
-```
-```
-
-````
 # HTTPS/TLS Packet Analysis
 
 ## 1. Traffic Generation
@@ -17,9 +12,6 @@ curl https://example.com
 The traffic was captured using Wireshark.
 
 I applied the display filter:
-
-```
-```
 
 ```
 tls
