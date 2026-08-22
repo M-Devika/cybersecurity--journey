@@ -6,7 +6,7 @@ To understand how HTTPS communication is protected using TLS and analyze TLS pac
 
 ## Environment
 
-
+```text
 Operating System: Ubuntu Linux
 Tool: Wireshark
 Network Interface: wlp2s0
@@ -45,15 +45,10 @@ TLS
 HTTPS
 ## Key Observations
 HTTPS communication uses TCP port 443.
-
 TLS packets were observed after TCP connection establishment.
-
 TLS 1.2 and TLS 1.3 traffic were observed in the capture.
-
 TLS handshake packets are used to establish secure communication.
-
 Application Data packets carry encrypted communication.
-
 The TLS layer protects application data from being transmitted as plaintext.
 Investigation Lesson
 
