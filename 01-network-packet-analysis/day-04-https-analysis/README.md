@@ -22,7 +22,7 @@ tls
 
 This allowed me to focus on TLS packets involved in HTTPS communication.
 
-Concepts Learned
+## Concepts Learned
 HTTPS
 TLS
 TLS 1.2
@@ -43,7 +43,7 @@ TCP
 TLS
 ↓
 HTTPS
-Key Observations
+## Key Observations
 HTTPS communication uses TCP port 443.
 
 TLS packets were observed after TCP connection establishment.
@@ -61,7 +61,7 @@ Packet captures can reveal useful information about encrypted communication even
 
 By examining TLS packet metadata, it is possible to identify information such as the TLS version, packet direction, handshake traffic, and encrypted application-data traffic.
 
-Conclusion
+## Conclusion
 
 This exercise helped me understand how HTTPS communication operates over TCP and how TLS provides encryption for application-layer communication.
 
@@ -69,7 +69,7 @@ I learned how to identify TLS traffic in Wireshark and distinguish TLS handshake
 
 This practical helped me move from analyzing TCP communication to understanding how secure HTTPS communication is established at the packet level.
 
-Evidence
+## Evidence
 
 The screenshots included with this analysis show:
 
