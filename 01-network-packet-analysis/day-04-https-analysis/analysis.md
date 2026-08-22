@@ -1,3 +1,9 @@
+the technical corrections we discussed.
+
+```
+```
+
+````
 # HTTPS/TLS Packet Analysis
 
 ## 1. Traffic Generation
@@ -6,13 +12,16 @@ I generated controlled HTTPS traffic using:
 
 ```bash
 curl https://example.com
-```
+````
 
 The traffic was captured using Wireshark.
 
 I applied the display filter:
 
-```text
+```
+```
+
+```
 tls
 ```
 
@@ -26,15 +35,15 @@ The objective of this practical was to analyze HTTPS communication at the packet
 
 The analysis focused on:
 
-- TLS packet identification
-- Client Hello
-- Server Hello
-- TLS handshake information
-- Cipher suites
-- TLS extensions
-- Encrypted Application Data
-- TCP port 443
-- TLS packet structure
+-  TLS packet identification 
+-  Client Hello 
+-  Server Hello 
+-  TLS handshake information 
+-  Cipher suites 
+-  TLS extensions 
+-  Encrypted Application Data 
+-  TCP port 443 
+-  TLS packet structure 
 
 ---
 
@@ -44,7 +53,10 @@ The first screenshot shows the TLS packets captured in Wireshark.
 
 The packet list contains entries identified as:
 
-```text
+```
+```
+
+```
 TLSv1.2  Application Data
 TLSv1.3  Client Hello
 TLSv1.3  Server Hello
@@ -52,13 +64,14 @@ TLSv1.3  Change Cipher Spec
 TLSv1.3  Application Data
 ```
 
-This demonstrates that the HTTPS connection generated TLS traffic containing handshake messages and application-data packets.
-
-The packet overview also shows communication in both directions between the client and server.
+The overall capture contains packets identified by Wireshark as both TLS 1.2 and TLS 1.3 traffic. The HTTPS handshake analyzed in the screenshots is a TLS 1.3 handshake.
 
 ### Screenshot
 
-```text
+```
+```
+
+```
 screenshots/01-tls-packets.png
 ```
 
@@ -70,13 +83,19 @@ The second screenshot shows the **Client Hello** packet.
 
 Wireshark identifies the packet as:
 
-```text
+```
+```
+
+```
 TLSv1.3 Record Layer: Handshake Protocol: Client Hello
 ```
 
 Important observations include:
 
-```text
+```
+```
+
+```
 Handshake Type: Client Hello
 Version: TLS 1.2 (0x0303)
 Cipher Suites: 62
@@ -86,7 +105,10 @@ Extensions Length: 373
 
 The Client Hello also contains several TLS extensions, including:
 
-```text
+```
+```
+
+```
 server_name
 ec_point_formats
 supported_groups
@@ -106,17 +128,23 @@ The Client Hello is used by the client to provide information needed for TLS neg
 
 Although Wireshark displays:
 
-```text
+```
+```
+
+```
 TLSv1.3 Record Layer
 ```
 
 the Client Hello contains:
 
-```text
+```
+```
+
+```
 Version: TLS 1.2 (0x0303)
 ```
 
-This does **not necessarily mean that the connection is using TLS 1.2**.
+This does **not** necessarily mean that the connection is using TLS 1.2.
 
 TLS 1.3 uses `0x0303` as a legacy version value in parts of the handshake for compatibility. The actual supported TLS versions are negotiated using the `supported_versions` extension.
 
@@ -124,7 +152,10 @@ Therefore, the packet should be interpreted as part of a **TLS 1.3 handshake**, 
 
 ### Screenshot
 
-```text
+```
+```
+
+```
 screenshots/02-client-hello.png
 ```
 
@@ -134,15 +165,21 @@ screenshots/02-client-hello.png
 
 The third screenshot shows the **Server Hello** packet.
 
-Wireshark identifies it as:
+Wireshark identifies the packet as:
 
-```text
+```
+```
+
+```
 TLSv1.3 Record Layer: Handshake Protocol: Server Hello
 ```
 
 Important observations include:
 
-```text
+```
+```
+
+```
 Handshake Type: Server Hello
 Version: TLS 1.2 (0x0303)
 Cipher Suite: TLS_AES_256_GCM_SHA384
@@ -151,7 +188,10 @@ Compression Method: null (0)
 
 The Server Hello also contains extensions including:
 
-```text
+```
+```
+
+```
 key_share
 supported_versions
 ```
@@ -160,8 +200,22 @@ The Server Hello represents the server's response to the Client Hello and contai
 
 The selected cipher suite shown in the screenshot is:
 
-```text
+```
+```
+
+```
 TLS_AES_256_GCM_SHA384
+```
+
+Similar to the Client Hello, the `0x0303` version field in the TLS 1.3 Server Hello is a legacy compatibility value. The negotiated TLS version is indicated through the `supported_versions` extension.
+
+### Screenshot
+
+```
+```
+
+```
+screenshots/03-server-hello.png
 ```
 
 ---
@@ -170,13 +224,19 @@ TLS_AES_256_GCM_SHA384
 
 The Server Hello screenshot also shows:
 
-```text
+```
+```
+
+```
 TLSv1.3 Record Layer: Application Data Protocol: http-over-tls
 ```
 
 The packet contains:
 
-```text
+```
+```
+
+```
 Content Type: Application Data (23)
 Version: TLS 1.2 (0x0303)
 Encrypted Application Data
@@ -186,7 +246,10 @@ The application data is encrypted, so the actual HTTP content is not directly vi
 
 This demonstrates the purpose of TLS encryption:
 
-```text
+```
+```
+
+```
 HTTP Application Data
         ↓
        TLS
@@ -202,7 +265,10 @@ The packet capture therefore allows the analyst to observe TLS metadata and encr
 
 The Server Hello screenshot also shows:
 
-```text
+```
+```
+
+```
 TLSv1.3 Record Layer: Change Cipher Spec Protocol
 ```
 
@@ -218,7 +284,10 @@ The important evidence for this analysis is that the capture contains TLS 1.3 ha
 
 The Server Hello packet shows the selected cipher suite:
 
-```text
+```
+```
+
+```
 TLS_AES_256_GCM_SHA384
 ```
 
@@ -226,8 +295,8 @@ This cipher suite indicates the cryptographic algorithms selected for the TLS 1.
 
 It uses:
 
-- AES-256-GCM for authenticated encryption
-- SHA-384 as the hash function associated with the cipher suite
+- **AES-256-GCM** for authenticated encryption 
+- **SHA-384** as the hash function associated with the cipher suite 
 
 The cipher suite selection is negotiated during the TLS handshake.
 
@@ -239,7 +308,10 @@ The Client Hello contains several extensions that provide additional information
 
 Important extensions visible in the screenshot include:
 
-```text
+```
+```
+
+```
 server_name
 application_layer_protocol_negotiation
 supported_versions
@@ -252,7 +324,10 @@ These extensions allow the client and server to negotiate capabilities and param
 
 For example:
 
-```text
+```
+```
+
+```
 server_name
 → Identifies the requested server name.
 
@@ -274,7 +349,10 @@ HTTPS is HTTP communication protected using TLS.
 
 The protocol relationship can be represented as:
 
-```text
+```
+```
+
+```
 HTTP
 ↓
 TLS
@@ -288,7 +366,10 @@ Ethernet II
 
 The standard server-side port for HTTPS is:
 
-```text
+```
+```
+
+```
 443
 ```
 
@@ -298,9 +379,14 @@ The TLS layer provides protection for the HTTP application data transported thro
 
 ## 11. Packet Encapsulation
 
-The HTTPS communication can be viewed through the following protocol stack:
+The HTTPS communication can be viewed through the following protocol stack.
 
-```text
+### Packet Dissection Order
+
+```
+```
+
+```
 Ethernet II
 ↓
 IPv4
@@ -340,7 +426,10 @@ When HTTP is protected by TLS, the communication is HTTPS.
 
 The Wireshark display filter used for this practical was:
 
-```text
+```
+```
+
+```
 tls
 ```
 
@@ -348,19 +437,28 @@ This was chosen because the objective was to analyze the TLS layer of HTTPS comm
 
 Other filters can be used for different levels of analysis:
 
-```text
+```
+```
+
+```
 tcp
 ```
 
 Shows TCP traffic.
 
-```text
+```
+```
+
+```
 tcp.port == 443
 ```
 
 Shows TCP traffic associated with port 443.
 
-```text
+```
+```
+
+```
 tls
 ```
 
@@ -368,7 +466,10 @@ Focuses on traffic identified by Wireshark as TLS.
 
 For this practical, the `tls` filter made it easier to identify:
 
-```text
+```
+```
+
+```
 Client Hello
 Server Hello
 Change Cipher Spec
@@ -383,7 +484,10 @@ The packet capture demonstrates that encrypted communication can still provide u
 
 Even though the application data is encrypted, the capture reveals metadata such as:
 
-```text
+```
+```
+
+```
 TLS Version Information
 Handshake Messages
 Cipher Suite
@@ -403,20 +507,23 @@ This practical helped me understand HTTPS communication at the TLS layer.
 
 I learned how to:
 
-- Identify TLS traffic using Wireshark
-- Identify a Client Hello packet
-- Identify a Server Hello packet
-- Examine TLS handshake information
-- Identify cipher-suite information
-- Examine TLS extensions
-- Identify encrypted application-data packets
-- Understand the relationship between HTTP, HTTPS, TLS, and TCP
-- Understand the purpose of TCP port 443
-- Understand why TLS packet metadata remains visible even when application data is encrypted
+-  Identify TLS traffic using Wireshark 
+-  Identify a Client Hello packet 
+-  Identify a Server Hello packet 
+-  Examine TLS handshake information 
+-  Identify cipher-suite information 
+-  Examine TLS extensions 
+-  Identify encrypted application-data packets 
+-  Understand the relationship between HTTP, HTTPS, TLS, and TCP 
+-  Understand the purpose of TCP port 443 
+-  Understand why TLS packet metadata remains visible even when application data is encrypted 
 
 The main communication flow observed was:
 
-```text
+```
+```
+
+```
 TCP Connection
       ↓
 Client Hello
@@ -436,48 +543,57 @@ The screenshots included with this analysis are:
 
 ### Screenshot 1 — TLS Packet Overview
 
-```text
+```
+```
+
+```
 screenshots/01-tls-packets.png
 ```
 
 Shows:
 
-- TLS packet list
-- Client Hello
-- Server Hello
-- Change Cipher Spec
-- Application Data
-- TLSv1.2 and TLSv1.3 labels displayed by Wireshark
+-  TLS packet list 
+-  Client Hello 
+-  Server Hello 
+-  Change Cipher Spec 
+-  Application Data 
+-  TLSv1.2 and TLSv1.3 labels displayed by Wireshark 
 
 ### Screenshot 2 — Client Hello
 
-```text
+```
+```
+
+```
 screenshots/02-client-hello.png
 ```
 
 Shows:
 
-- Client Hello
-- TLS handshake information
-- Cipher suites
-- TLS extensions
-- Supported versions
-- Key-share information
+-  Client Hello 
+-  TLS handshake information 
+-  Cipher suites 
+-  TLS extensions 
+-  Supported versions 
+-  Key-share information 
 
 ### Screenshot 3 — Server Hello and Encrypted Data
 
-```text
+```
+```
+
+```
 screenshots/03-server-hello.png
 ```
 
 Shows:
 
-- Server Hello
-- Selected cipher suite
-- Supported versions
-- Key-share information
-- Change Cipher Spec
-- Encrypted Application Data
+-  Server Hello 
+-  Selected cipher suite 
+-  Supported versions 
+-  Key-share information 
+-  Change Cipher Spec 
+-  Encrypted Application Data 
 
 Sensitive IP and MAC address information has been redacted before publication.
 
@@ -490,3 +606,24 @@ This exercise helped me move from TCP packet analysis to analyzing secure web co
 I observed the Client Hello and Server Hello messages, examined TLS negotiation information, identified the selected cipher suite, and observed encrypted application data.
 
 The practical demonstrated how TLS establishes the security parameters for HTTPS communication and protects application data from being transmitted as readable plaintext.
+
+```
+```
+
+````
+
+### One thing to check before committing
+
+Make sure your actual screenshot filenames exactly match:
+
+```text
+day-04-https-analysis/
+├── README.md
+├── analysis.md
+└── screenshots/
+    ├── 01-tls-packets.png
+    ├── 02-client-hello.png
+    └── 03-server-hello.png
+````
+
+If your filenames are different, **change only those three paths in** **`analysis.md`** is this ok
