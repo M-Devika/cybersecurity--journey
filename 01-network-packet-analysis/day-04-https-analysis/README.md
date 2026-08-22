@@ -9,7 +9,7 @@ To understand how HTTPS communication is protected using TLS and analyze TLS pac
 ```text
 Operating System: Ubuntu Linux
 Tool: Wireshark
-Network Interface: wlp2s0
+Network Interface: wlp2s0 ```
 Practical Task
 
 I generated controlled HTTPS traffic using:
