@@ -119,16 +119,4 @@ This exercise helped me move from understanding TCP as a networking concept to o
 
 I learned how to identify the TCP three-way handshake and understand the relationship between TCP ports, flags, sequence numbers, and acknowledgment numbers.
 
-## Evidence
 
-The screenshots included with this analysis show:
-
-- TCP SYN packet
-- TCP SYN-ACK packet
-- TCP ACK packet
-- TCP source and destination ports
-- TCP flags
-- Sequence and acknowledgment numbers
-- TCP three-way handshake
-
-Sensitive IP and MAC address information has been redacted before publication.
