@@ -78,15 +78,3 @@ I learned how to identify TLS traffic in Wireshark and distinguish TLS handshake
 
 This practical helped me move from analyzing TCP communication to understanding how secure HTTPS communication is established at the packet level.
 
-## Evidence
-
-The screenshots included with this analysis show:
-
-- TLS packets
-- TLS 1.2 / TLS 1.3
-- TLS handshake traffic
-- Client and server TLS communication
-- Encrypted Application Data
-- TCP port 443
-
-Sensitive IP and MAC address information has been redacted before publication.
