@@ -501,7 +501,7 @@ Shows:
 - Supported versions
 - Key-share information
 
-### Screenshot 3 — Server Hello and Encrypted Application Data
+## Screenshot 3 — Server Hello and Encrypted Application Data
 
 ```text
 screenshots/03-server-hello.png
