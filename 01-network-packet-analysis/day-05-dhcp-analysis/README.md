@@ -29,11 +29,12 @@ DHCP Request
       ↓
 DHCP ACK
 Capture Result
+```
 
 The capture did not contain the complete DHCP exchange.
 
 I observed:
-
+```text
 DHCP Request
       ↓
 DHCP ACK
