@@ -16,7 +16,7 @@ I attempted to capture DHCP traffic from my network interface using Wireshark.
 
 The display filter used was:
 
-
+```text
 dhcp
 
 The expected DHCP communication follows the DORA process:
@@ -37,7 +37,7 @@ I observed:
 DHCP Request
       ↓
 DHCP ACK
-
+```
 The DHCP Discover and DHCP Offer packets were not captured.
 
 I documented the packets that were actually observed rather than treating the missing packets as captured evidence.
