@@ -16,7 +16,7 @@ I attempted to capture DHCP traffic from my network interface using Wireshark.
 
 The display filter used was:
 
-```text
+
 dhcp
 
 The expected DHCP communication follows the DORA process:
