@@ -177,14 +177,10 @@ Request → ACK
 Therefore, the analysis was based on the available packet evidence rather than assuming that the complete DORA exchange had been captured.
 
 This is important in real network analysis because an analyst must distinguish between:
-
-    What is expected to happen
-
-    What actually happened
-
-    What was captured
-
-    What cannot be confirmed from the available evidence
+-> What is expected to happen
+-> What actually happened
+-> What was captured
+-> What cannot be confirmed from the available evidence
 
 ## 10. Key Observations
 
@@ -247,8 +243,6 @@ The capture did not contain the complete DHCP DORA sequence. However, the DHCP R
 
 Rather than assuming that the missing Discover and Offer packets were captured, this analysis documents only the traffic that was actually observed.
 
-This reinforced an important network-analysis principle:
-
-    Packet analysis should be based on captured evidence rather than assumptions about what should have appeared.
 
 
+    
